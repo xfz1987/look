@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>你好</title>
+    <style>
+        .tt{width:200px;height:200px;background:red;}
+    </style>
+</head>
+<body>
+    <div class="tt"></div>
+    <button>cccc</button>
+    <script src="js/jquery.js"></script>
+    <script>
+        /*jQ:animate,不支持css3的transform，所以应该保持如下写法*/
+        function stratRun(options,runTime){
+            $('.tt').animate({opacity:0.1},{//元素最终的缩放大小，由opacity决定了
+                step:function(now,fx){
+                    $(this).css('-webkit-transform','scale('+now+','+now+')');
+                },duration:runTime,complete:function(){alert(11111)}
+            },'linear');
+        }
+
+        $('button').click(function(){
+            stratRun(null, 1000);
+        });
+
+    </script>
+</body>
+</html>
